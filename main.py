@@ -1,5 +1,6 @@
 import webbrowser
-import random
+# import random
+import secrets
 import sys
 import string
 import os
@@ -7,7 +8,8 @@ import time
 import storage
 #replacing random() with secrets()
 def menu():
-    print(" Main Menu\n 1) Random 10 digit password [best for daily and regular uses]\n 2) Generate password of custom length\n 3) See your saved passwords list\n 4) Delete saved password file\n 5) Edit Password file\n")
+    os.system('cls')
+    print("MAIN MENU\n 1) Random 10 digit password [best for daily and regular uses]\n 2) Generate password of custom length\n 3) See your saved passwords list\n 4) Edit Password file\n 5) Delete saved password file\n")
     print("press 0 to exit the program")
 def saving(pm):
     dec = input("Do you want to save this password so you can access it later? \n Press 'Y' to save or any other key to go back to menu: ")
@@ -40,16 +42,16 @@ def randPass():
     NumList = [1, 2, 3, 4, 5, 6, 7, 4, 8, 9, 0]
     SymList = ["@", "$", "%", "&", "!", "?", ]
     Mathlist = ["+", "*", "-", "/"]
-    l1 = random.choice(UcaseList)
-    l2 = random.choice(LcaseList)
-    l3 = random.choice(LcaseList)
-    l8 = random.choice(LcaseList)
-    l10 = random.choice(LcaseList)
-    l6 = random.choice(Mathlist)
-    l4 = str(random.choice(NumList))
-    l7 = str(random.choice(NumList))
-    l5 = random.choice(SymList)
-    l9 = random.choice(SymList)
+    l1 = secrets.choice(UcaseList)
+    l2 = secrets.choice(LcaseList)
+    l3 = secrets.choice(LcaseList)
+    l8 = secrets.choice(LcaseList)
+    l10 = secrets.choice(LcaseList)
+    l6 = secrets.choice(Mathlist)
+    l4 = str(secrets.choice(NumList))
+    l7 = str(secrets.choice(NumList))
+    l5 = secrets.choice(SymList)
+    l9 = secrets.choice(SymList)
     result = l1 + l2 + l3 + l8 + l10 + l6 + l4 + l7 + l5 + l9
     print("Your 10 digit secure password is " + result)
     return result
@@ -57,14 +59,7 @@ def randPass():
 
 def customPass():
     os.system('cls')
-    s1 = string.ascii_uppercase
-    # print(s1)
-    s2 = string.ascii_lowercase
-    # print(s2)
-    s3 = string.digits
-    # print(s3)
-    s4 = string.punctuation
-    # print(s4)
+    s1 = string.ascii_uppercase + string.ascii_lowercase + string.digits + string.punctuation
     while True:
         try:
             plen = int(input("Enter length of password: "))
@@ -73,13 +68,10 @@ def customPass():
             print("BAD INPUT")
             time.sleep(1)
             os.system('cls')
-    s = []
-    s.extend(s1)
-    s.extend(s2)
-    s.extend(s3)
-    s.extend(s4)
+    # s = []
     # print(s)
-    result = "".join(random.choices(s, k=plen))
+    # result = "".join(secrets.choices(s, k=plen))
+    result = ''.join(secrets.choice(s1) for i in range(plen))
     print("Your randomly generated password: ", end="")
     print(result)
     return result
@@ -96,6 +88,7 @@ def startPage():
             os.system('cls')
             print( "ERROR")
             print("ONLY INTEGERS ARE ALLOWED!!\n RESTART PROGRAM OR CONTACT ADMIN IF PROBLEM PERSISTS.")
+            loading(0.05)
         menu()
     if cho == 1:
         r = randPass()
@@ -137,19 +130,22 @@ def startPage():
                 startPage()
         main()
     elif cho == 4:
-        storage.delF()
-        startPage()
-    elif cho == 5:
         os.system('cls')
         print("Opening file in editing mode\n WARNING: ONLY CHANGE IF YOU KNOW WHAT YOU'RE DOING! ", end="")
-        loading(0.5)
+        loading(0.2)
         webbrowser.open("pass.txt")
         time.sleep(1)
+        startPage()
+        
+    elif cho == 5:
+        storage.delF()
         startPage()
         
     else:
         os.system('cls')
         print(
             "Option not found.\nThis option '"+ str(cho) + "' is either unavailable or under construction in this service, please contact admin for more info")
+        loading(0.05)
+        startPage()
 
 startPage()
