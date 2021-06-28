@@ -5,7 +5,7 @@ import string
 import os
 import time
 import storage
-
+#replacing random() with secrets()
 def menu():
     print(" Main Menu\n 1) Random 10 digit password [best for daily and regular uses]\n 2) Generate password of custom length\n 3) See your saved passwords list\n 4) Delete saved password file\n 5) Edit Password file\n")
     print("press 0 to exit the program")
