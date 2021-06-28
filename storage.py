@@ -30,8 +30,7 @@ def delF():
             # print("got integer")
             break
         except ValueError :
-            print("ERROR: only integers value are allowed")
-            delF()
+           exit()
     if conf == 1:
         if os.path.exists("pass.txt") == True:
             os.remove("pass.txt")
@@ -45,8 +44,7 @@ def delF():
             time.sleep(0.5)
         else:
             print("This file does not exist")
-            time.sleep(1)
-
-            
+            time.sleep(1)          
     else:
         print("Operation cancelled")
+        time.sleep(2)
