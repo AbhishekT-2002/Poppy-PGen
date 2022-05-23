@@ -1,5 +1,5 @@
 import webbrowser
-# import random
+# import random                                                 replaced random with secrets for better security and to avoid seed misuse
 import secrets
 import sys
 import string
