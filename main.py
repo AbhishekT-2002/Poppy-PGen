@@ -6,19 +6,20 @@ import string
 import os
 import time
 import storage
+import pyperclip
 #replacing random() with secrets()
 def menu():
     os.system('cls')
-    print("MAIN MENU\n 1) Random 10 digit password [best for daily and regular uses]\n 2) Generate password of custom length\n 3) See your saved passwords list\n 4) Edit Password file\n 5) Delete saved password file\n")
+    print("Homepage\n 1) Random 10 digit password (recommended)\n 2) Generate password of custom length\n 3) See your saved passwords list\n 4) Edit Password file\n 5) Delete saved password file\n")
     print("press 0 to exit the program")
 def saving(pm):
-    dec = input("Do you want to save this password so you can access it later? \n Press 'Y' to save or any other key to go back to menu: ")
+    dec = input("Do you want to save this password? \nPress 'Y' to save or any other key to go back to menu: ")
     if dec == 'Y' or dec == 'y':
         storage.writeF(pm)
         print("Saving password")
         loading(0.05)
         os.system('cls')
-        print("Password successfully saved in file!\n Access the password list from main menu\n ")
+        print("Password successfully saved in file!\n Access the password list from Home\n ")
         print("Returning to menu")
         loading(0.05)
     else:
@@ -72,7 +73,7 @@ def customPass():
     # print(s)
     # result = "".join(secrets.choices(s, k=plen))
     result = ''.join(secrets.choice(s1) for i in range(plen))
-    print("Your randomly generated password: ", end="")
+    print("Your Randomly Generated Password: ", end="")
     print(result)
     return result
 
@@ -100,8 +101,8 @@ def startPage():
         startPage()
     elif cho == 0:
         os.system('cls')
-        print("Thanks for using my program. exiting ")
-        loading(0.1)
+        print("Thanks for using Poppy. Exiting")
+        loading(0.01)
         os.system('cls')
         exit()
     elif cho == 3:
@@ -110,7 +111,7 @@ def startPage():
             if got == 1:
                 while True:
                     try:
-                        back = int(input("NOTE: THIS IS READ ONLY.\nPress 0 to go back to main menu: "))
+                        back = int(input("NOTE: THIS IS READ ONLY.\nPress 0 to Home: "))
                         break
                     except ValueError:
                         os.system('cls')
