@@ -36,13 +36,6 @@ def loading(t):
         sys.stdout.write(char)
 def randPass():
     os.system('cls')
-    # UcaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
-    #              "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ]
-    # LcaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
-    #              "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ]
-    # NumList = [1, 2, 3, 4, 5, 6, 7, 4, 8, 9, 0]
-    # SymList = ["@", "$", "%", "&", "!", "?", ]
-    # Mathlist = ["+", "*", "-", "/"]
     l1 = secrets.choice(string.ascii_uppercase)
     l2 = secrets.choice(string.ascii_lowercase)
     l3 = secrets.choice(string.ascii_lowercase)
