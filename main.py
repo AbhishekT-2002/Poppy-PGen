@@ -13,12 +13,16 @@ def menu():
     print("Homepage\n 1) Random 10 digit password (recommended)\n 2) Generate Password of Custom Length\n 3) Show Saved Passwords\n 4) Edit Saved Password\n 5) DELETE ALL SAVED PASSWORDS!! \n")
     print("Press 0 to Exit ")
 def saving(pm):
+    
+    
     dec = input("Do you want to save this password? \nPress 'Y' to save or any other key to go back to menu: ")
     if dec == 'Y' or dec == 'y':
         storage.writeF(pm)
         print("Saving password")
         loading(0.05)
         os.system('cls')
+        print("\nCopied to clipboard\n")
+        pyperclip.copy(pm)
         print("Saved Successfully!\n Access Saved Passwords from Homepage\n")
         print("Returning to menu")
         loading(0.05)
