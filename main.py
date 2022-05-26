@@ -10,8 +10,8 @@ import pyperclip
 #replacing random() with secrets()
 def menu():
     os.system('cls')
-    print("Homepage\n 1) Random 10 digit password (recommended)\n 2) Generate password of custom length\n 3) See your saved passwords list\n 4) Edit Password file\n 5) Delete saved password file\n")
-    print("press 0 to exit the program")
+    print("Homepage\n 1) Random 10 digit password (recommended)\n 2) Generate Password of Custom Length\n 3) Show Saved Passwords\n 4) Edit Saved Password\n 5) DELETE ALL SAVED PASSWORDS!! \n")
+    print("Press 0 to Exit ")
 def saving(pm):
     dec = input("Do you want to save this password? \nPress 'Y' to save or any other key to go back to menu: ")
     if dec == 'Y' or dec == 'y':
@@ -19,7 +19,7 @@ def saving(pm):
         print("Saving password")
         loading(0.05)
         os.system('cls')
-        print("Password successfully saved in file!\n Access the password list from Home\n ")
+        print("Saved Successfully!\n Access Saved Passwords from Homepage\n")
         print("Returning to menu")
         loading(0.05)
     else:
@@ -36,23 +36,23 @@ def loading(t):
         sys.stdout.write(char)
 def randPass():
     os.system('cls')
-    UcaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
-                 "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ]
-    LcaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
-                 "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ]
-    NumList = [1, 2, 3, 4, 5, 6, 7, 4, 8, 9, 0]
-    SymList = ["@", "$", "%", "&", "!", "?", ]
-    Mathlist = ["+", "*", "-", "/"]
-    l1 = secrets.choice(UcaseList)
-    l2 = secrets.choice(LcaseList)
-    l3 = secrets.choice(LcaseList)
-    l8 = secrets.choice(LcaseList)
-    l10 = secrets.choice(LcaseList)
-    l6 = secrets.choice(Mathlist)
-    l4 = str(secrets.choice(NumList))
-    l7 = str(secrets.choice(NumList))
-    l5 = secrets.choice(SymList)
-    l9 = secrets.choice(SymList)
+    # UcaseList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L",
+    #              "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", ]
+    # LcaseList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+    #              "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", ]
+    # NumList = [1, 2, 3, 4, 5, 6, 7, 4, 8, 9, 0]
+    # SymList = ["@", "$", "%", "&", "!", "?", ]
+    # Mathlist = ["+", "*", "-", "/"]
+    l1 = secrets.choice(string.ascii_uppercase)
+    l2 = secrets.choice(string.ascii_lowercase)
+    l3 = secrets.choice(string.ascii_lowercase)
+    l8 = secrets.choice(string.ascii_lowercase)
+    l10 = secrets.choice(string.ascii_lowercase)
+    l6 = secrets.choice(string.punctuation)
+    l4 = str(secrets.choice(string.digits))
+    l7 = str(secrets.choice(string.digits))
+    l5 = secrets.choice(string.punctuation)
+    l9 = secrets.choice(string.punctuation)
     result = l1 + l2 + l3 + l8 + l10 + l6 + l4 + l7 + l5 + l9
     print("Your 10 digit secure password is " + result)
     return result
