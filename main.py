@@ -10,7 +10,7 @@ import pyperclip
 #replacing random() with secrets()
 def menu():
     os.system('cls')
-    print("Homepage\n 1) Random 10 digit password (recommended)\n 2) Generate Password of Custom Length\n 3) Show Saved Passwords\n 4) Edit Saved Password\n 5) DELETE ALL SAVED PASSWORDS!! \n")
+    print("\nHomepage\n 1) Random 10 digit password (recommended)\n 2) Generate Password of Custom Length\n 3) Show Saved Passwords\n 4) Edit Saved Password\n 5) DELETE ALL SAVED PASSWORDS!! \n")
     print("Press 0 to Exit ")
 def saving(pm):
     
@@ -130,7 +130,7 @@ def startPage():
     elif cho == 4:
         os.system('cls')
         print("Opening file in editing mode\n WARNING: ONLY CHANGE IF YOU KNOW WHAT YOU'RE DOING! ", end="")
-        loading(0.2)
+        loading(0.1)
         webbrowser.open("pass.txt")
         time.sleep(1)
         startPage()
