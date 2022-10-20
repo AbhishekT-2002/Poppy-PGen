@@ -1,13 +1,13 @@
 import os
 import time
 import sys
-def majboori():
-    pass
+# def majboori():
+#     pass
 def writeF(p):
         wF = open("pass.txt", "a+")
         wF.write(p)
         os.system('cls')
-        wF.write("\ndescription:- ")
+        wF.write("\nDescription:- ")
         msg = input("\nEnter message/remarks/description for this password: ")
         wF.write(msg)
         wF.write("\n---------------------------------------------------------------\n")
