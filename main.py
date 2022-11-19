@@ -10,7 +10,7 @@ import pyperclip
 #replacing random() with secrets()
 def menu():
     os.system('cls')
-    print("\nHomepage\n 1) Random 10 digit password (recommended)\n 2) Generate Password of Custom Length\n 3) Show Saved Passwords\n 4) Edit Saved Password\n 5) DELETE ALL SAVED PASSWORDS!! \n")
+    print("Homepage\n 1) Random 10 digit password (recommended)\n 2) Generate Password of Custom Length\n 3) Show Saved Passwords\n 4) Edit Saved Password\n 5) DELETE ALL SAVED PASSWORDS!! \n")
     print("Press 0 to Exit ")
 def saving(pm):
     
@@ -70,8 +70,7 @@ def customPass():
     # print(s)
     # result = "".join(secrets.choices(s, k=plen))
     result = ''.join(secrets.choice(s1) for i in range(plen))
-    print("Your Randomly Generated Password: ", end="")
-    print(result)
+    print("Your Randomly Generated Password:", result)
     return result
 
 
