@@ -1,8 +1,6 @@
 import os
 import time
 import sys
-# def majboori():
-#     pass
 def writeF(p):
         wF = open("pass.txt", "a+")
         wF.write(p)

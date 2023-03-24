@@ -1,20 +1,34 @@
 import webbrowser
-# import random                                                 replaced random with secrets for better security and to avoid seed misuse
 import secrets
 import sys
 import string
 import os
 import time
 import storage
-import pyperclip
-#replacing random() with secrets()
+import pyperclip    
 def menu():
+    """
+    Display the main menu for the program.
+    
+    Parameters:
+        None
+    
+    Returns:
+        None
+    """
     os.system('cls')
     print("Homepage\n 1) Random 10 digit password (recommended)\n 2) Generate Password of Custom Length\n 3) Show Saved Passwords\n 4) Edit Saved Password\n 5) DELETE ALL SAVED PASSWORDS!! \n")
     print("Press 0 to Exit ")
 def saving(pm):
+    """
+    Save a password to the password storage.
     
+    Parameters:
+        pm (str): The password to be saved.
     
+    Returns:
+        None
+    """
     dec = input("Do you want to save this password? \nPress 'Y' to save or any other key to go back to menu: ")
     if dec == 'Y' or dec == 'y':
         storage.writeF(pm)
@@ -34,11 +48,29 @@ def saving(pm):
 
 
 def loading(t):
+    """
+    Display a loading animation.
+    
+    Parameters:
+        t (float): The time in seconds to sleep between each character.
+    
+    Returns:
+        None
+    """
     loads = "xxxxxxxxxxxxxxxxxxxxxxxxx"
     for char in loads:
         time.sleep(t)
         sys.stdout.write(char)
 def randPass():
+    """
+    Generate a random 10-digit password.
+    
+    Parameters:
+        None
+    
+    Returns:
+        result (str): The generated password.
+    """
     os.system('cls')
     l1 = secrets.choice(string.ascii_uppercase)
     l2 = secrets.choice(string.ascii_lowercase)
@@ -56,6 +88,15 @@ def randPass():
 
 
 def customPass():
+    """
+    Generate a random password of a specified length.
+    
+    Parameters:
+        None
+    
+    Returns:
+        result (str): The generated password.
+    """
     os.system('cls')
     s1 = string.ascii_uppercase + string.ascii_lowercase + string.digits + string.punctuation
     while True:
@@ -66,15 +107,21 @@ def customPass():
             print("BAD INPUT")
             time.sleep(1)
             os.system('cls')
-    # s = []
-    # print(s)
-    # result = "".join(secrets.choices(s, k=plen))
     result = ''.join(secrets.choice(s1) for i in range(plen))
     print("Your Randomly Generated Password:", result)
     return result
 
 
 def startPage():
+    """
+    Display the start page for the program and get user input.
+    
+    Parameters:
+        None
+    
+    Returns:
+        None
+    """
     os.system('cls')
     menu()
     while True:
